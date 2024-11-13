@@ -1,8 +1,8 @@
-import React, { type FC } from "react";
-import { NavLink } from "react-router-dom";
+import React, { type FC } from 'react';
+import { NavLink } from 'react-router-dom';
+import styles from './sideMenu.module.scss';
 
-interface SideMenuProps {
-}
+interface SideMenuProps {}
 
 interface menuItem {
     text: string;
@@ -10,22 +10,19 @@ interface menuItem {
     // icon: React.ComponentType;
 }
 
-const SideMenu: FC<SideMenuProps> = ({
-}) => {
+const SideMenu: FC<SideMenuProps> = ({}) => {
     const MenuItems: menuItem[] = [
-        { text: "Home", path: "/" },
-        { text: "Home2", path: "/home2" },
-        { text: "Home3", path: "/home3" },
+        { text: 'Home', path: '/' },
+        { text: 'Home2', path: '/home2' },
+        { text: 'Home3', path: '/home3' },
     ];
     return (
-        <div>
+        <div className={styles.root}>
             <div>
                 {MenuItems.map((item, index) => (
-                    <NavLink key={item.text} to={item.path} >
-						<div key={index}>
-							{item.text}
-						</div>
-					</NavLink>
+                    <NavLink key={item.text} to={item.path}>
+                        <div key={index}>{item.text}</div>
+                    </NavLink>
                 ))}
             </div>
         </div>

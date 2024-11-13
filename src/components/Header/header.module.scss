@@ -1,6 +1,6 @@
 @use '@styles/global/' as *;
 
-.header {
+.root {
     background-color: $primary;
     &__child {
         background-color: blue;
