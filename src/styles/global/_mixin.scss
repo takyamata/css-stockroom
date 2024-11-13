@@ -1,0 +1,145 @@
+// ミックスイン
+
+@use 'sass:math';
+@use './variables' as *;
+
+// SP幅
+@mixin query($size) {
+    @media screen and (max-width: #{$size}px) {
+        @content;
+    }
+}
+
+// デスクトップ幅
+@mixin query_min($size) {
+    @media screen and (min-width: #{$size}px) {
+        @content;
+    }
+}
+
+// .container-w-[]のための sp break
+$container-types: (
+        (type: 400, break: $break400),
+        (type: 500, break: $break500),
+        (type: 540, break: $break540),
+        (type: 740, break: $break740),
+    );
+@mixin container_break ($size) {
+    @container container (max-width: #{$size}px) {
+        @content;
+    }
+}
+@mixin query_container() {
+    @each $container in $container-types {
+        $type: map-get($container, type);
+        $break: map-get($container, break);
+        .container-w-#{$type} & {
+            @include container_break($break) {
+                @content;
+            }
+        }
+    }
+}
+
+// 任意のcontainer_min
+@mixin query_container_min($size) {
+    @container container (min-width: #{$size}px) {
+        @content;
+    }
+}
+
+// ホバー
+@mixin hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+
+// 固定サイズ利用の際は、フォントサイズはfts、その他単位はremで記述
+@mixin fts($fts, $lin: 24) {
+    $rem: math.div($fts, 10);
+    $linS: math.div($lin, $fts);
+    font-size: #{$rem}rem;
+    line-height: $linS;
+}
+
+// 可変サイズ利用の際は、フォントサイズ含む単位は@functuin px()で記述
+@function px($size, $container-width) {
+    @return calc($size * (calc(1 / $container-width * 100cqw)));
+}
+
+@function tracking-to-em($tracking) {
+    @return $tracking * 0.001 + 0em;
+}
+
+@mixin ls($tracking) {
+    letter-spacing: tracking-to-em($tracking);
+    // text-indent: tracking-to-em($tracking);
+}
+
+
+// clamp===================
+
+// デザインが最大値
+@mixin clamp-max($size, $container-width, $min-size) {
+    font-size: clamp(#{$min-size}px,
+        #{calc($size * (calc(1 / $container-width * 100cqw)))},
+        #{$size}px);
+}
+
+// デザインが最小値
+@mixin clamp-min($size, $container-width, $max-size) {
+    font-size: clamp(#{$size}px,
+        #{calc($size * (calc(1 / $container-width * 100cqw)))},
+        #{$max-size}px);
+}
+
+// 複数行省略======================
+@mixin leader($row: 2) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $row;
+    overflow: hidden;
+}
+
+%is-show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 1;
+}
+@mixin is-show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 1;
+}
+
+%is-hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+@mixin is-hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+%user-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+%scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

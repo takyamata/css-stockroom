@@ -1,0 +1,11 @@
+@use '@styles/global/' as *;
+
+.header {
+    background-color: $primary;
+    &__child {
+        background-color: blue;
+    }
+}
+.child {
+    background-color: blue;
+}

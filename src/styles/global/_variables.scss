@@ -1,0 +1,54 @@
+// 変数
+
+$font-smoothing: antialiased;
+$text-rendering: auto;
+
+// フォント ======================
+$base-font-family: YakuHanJPs, "Noto Sans JP", "BIZ UDPGothic", 'メイリオ',
+    Meiryo, sans-serif;
+$base-font-size: 16px;
+
+// ブレークポイント設定 ======================
+$break: 834;
+$bigBreak: 1600;
+$PCWindowWidth: 1440;
+$break400: 439;
+$break500: 539;
+$break540: 579;
+$break740: 779;
+
+// カラー ======================
+$white: #ffffff;
+$black_1: #333333;
+
+$gray_1: #808080;
+$gray_2: #c4c4c4;
+$lightgray_1: #DAE1E8;
+$primary: #0092df;
+// $secondary: #e5006e;
+// $tertiary: #cfe8f5;
+$warning: #d6000f;
+$warning_highlight: #FFE1E3;
+$bg_color: #EDF1F5;
+$accent: #E5006E;
+$form_bg: #F4F7FC;
+
+$disabled: #c4c4c4;
+$complete: #008cd6;
+$link_hover: #005c8c;
+
+// イージング ======================
+$btnEase: all 0.16s ease;
+$ease: ease;
+$transition-opacity: opacity .16s ease;
+
+// タイム ======================
+$time: 0.16s;
+$form-time: 0.07s;
+
+// その他 ======================
+$box-shadow: 0rem 0.2rem 0.4rem 0rem rgba(#002e46, 0.08);
+$hover-opacity: .6;
+:root {
+    --all-container: .container-1col-type500 &;
+}

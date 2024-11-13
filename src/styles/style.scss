@@ -1,0 +1,38 @@
+@use './global/' as *;
+
+html {
+    font-size: 62.5%; // 基準サイズ
+    background-color: $bg_color;
+}
+
+body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    // -webkit-font-smoothing: $font-smoothing;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: $font-smoothing;
+    // font-smoothing: $font-smoothing;
+    text-rendering: $text-rendering;
+    font-family: $base-font-family;
+    color: $black_1;
+    overflow-y: scroll;
+    @include fts(16, 28);
+    @include ls(0);
+    @include query($break) {
+        touch-action: manipulation;
+    }
+}
+
+.br-pc {
+    display: block;
+    @include query($break) {
+        display: none;
+    }
+}
+
+.br-sp {
+    display: none;
+    @include query($break) {
+        display: block;
+    }
+}
