@@ -1,11 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const Home3 = () => {
-    return (
-        <div>
-            <div>Home3画面</div>
-        </div>
-    );
+    return <div>Home3画面</div>;
 };
 
 export default Home3;
