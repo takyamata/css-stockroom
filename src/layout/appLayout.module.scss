@@ -1,3 +1,8 @@
 .root {
     background-color: red;
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    grid-template-rows: 10rem 1fr;
+    grid-template-areas: 'sidemenu header' 'sidemenu main';
+    min-height: 100lvh;
 }

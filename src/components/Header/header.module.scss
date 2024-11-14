@@ -1,9 +1,10 @@
 .root {
+    grid-area: header;
     background-color: var(--header);
     &__child {
         background-color: blue;
     }
 }
 .child {
-    background-color: blue;
+    // background-color: blue;
 }

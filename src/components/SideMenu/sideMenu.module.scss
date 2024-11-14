@@ -1,4 +1,8 @@
-// @use '@styles/style' as *;
+@use '@styles/mixin' as *;
 .root {
+    grid-area: sidemenu;
     background-color: var(--sidemenu);
+    a {
+        @include font(large, var(--warning));
+    }
 }

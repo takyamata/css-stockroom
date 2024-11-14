@@ -1,5 +1,6 @@
 @use '@styles/mixin' as *;
 .root {
+    grid-area: main;
     background-color: var(--error);
     @include font(extra-bold);
 }
