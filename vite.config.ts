@@ -9,6 +9,11 @@ export default defineConfig({
         modules: {
             generateScopedName: '[name]__[local]',
         },
+        // preprocessorOptions: {
+        //     scss: {
+        //         additionalData: `@use "./src/styles/global/" as *;`,
+        //     },
+        // },
     },
     resolve: {
         alias: {

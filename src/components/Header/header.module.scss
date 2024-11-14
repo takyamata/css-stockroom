@@ -1,7 +1,5 @@
-@use '@styles/global/' as *;
-
 .root {
-    background-color: $primary;
+    background-color: var(--header);
     &__child {
         background-color: blue;
     }

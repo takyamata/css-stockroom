@@ -1,5 +1,5 @@
-@use '@styles/global/' as *;
-
+@use '@styles/mixin' as *;
 .root {
-    background-color: aqua;
+    background-color: var(--error);
+    @include font(extra-bold);
 }

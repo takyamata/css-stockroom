@@ -1,5 +1,4 @@
-@use '@styles/global/' as *;
-
+// @use '@styles/style' as *;
 .root {
-    background-color: $gray_1;
+    background-color: var(--sidemenu);
 }
