@@ -1,8 +1,10 @@
 .root {
-    background-color: red;
     display: grid;
-    grid-template-columns: 20rem 1fr;
-    grid-template-rows: 10rem 1fr;
-    grid-template-areas: 'sidemenu header' 'sidemenu main';
+    // grid-template-columns: 20rem 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 7rem 1fr;
+    // grid-template-areas: 'sidemenu header' 'sidemenu main';
+    grid-template-areas: 'header' 'main';
     min-height: 100lvh;
+    position: relative;
 }

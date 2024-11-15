@@ -1,4 +1,4 @@
-import React, { type FC } from 'react';
+import React, { useState, type FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './sideMenu.module.scss';
 
@@ -11,21 +11,50 @@ interface menuItem {
 }
 
 const SideMenu: FC<SideMenuProps> = ({}) => {
+    const [navState, setNavState] = useState<'open' | 'close'>('open');
+    const toggleNav = () => {
+        setNavState((prevState) => (prevState === 'open' ? 'close' : 'open'));
+    };
     const MenuItems: menuItem[] = [
         { text: 'Home', path: '/' },
-        { text: 'Home2', path: '/home2' },
-        { text: 'Home3', path: '/home3' },
+        { text: 'Button', path: '/button' },
+        { text: 'Link', path: '/link' },
+        { text: 'Other', path: '/other' },
+        { text: 'Blog', path: '/blog' },
     ];
     return (
-        <div className={styles.root}>
-            <div>
+        <nav className={`${styles.root} `} data-state={navState}>
+            <ul className={styles.ul}>
                 {MenuItems.map((item, index) => (
-                    <NavLink key={item.text} to={item.path}>
-                        <div key={index}>{item.text}</div>
-                    </NavLink>
+                    <li className={styles.li}>
+                        <NavLink
+                            key={item.text}
+                            to={item.path}
+                            className={styles.a}
+                        >
+                            <i className={styles.i}></i>
+                            <span key={index} className={styles.span}>
+                                {item.text}
+                            </span>
+                        </NavLink>
+                    </li>
                 ))}
-            </div>
-        </div>
+            </ul>
+            <button
+                type="button"
+                aria-label="閉じる"
+                className={styles.close_button}
+                onClick={toggleNav}
+            >
+                閉じる
+            </button>
+            <button
+                type="button"
+                aria-label="開く"
+                className={styles.open_button}
+                onClick={toggleNav}
+            />
+        </nav>
     );
 };
 

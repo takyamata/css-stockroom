@@ -1,6 +1,8 @@
 @use '@styles/mixin' as *;
 .root {
     grid-area: main;
-    background-color: var(--error);
+    background-color: var(--main);
+    padding: 4rem 3.2rem;
+    border-top: 0.1rem solid var(--border);
     @include font(extra-bold);
 }

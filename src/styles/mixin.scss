@@ -45,27 +45,27 @@
     // 基本========================
     @if $size == 'mid-bold' {
         $font-size-pixel: 16;
-        $line-height: 28;
+        $line-height: 24;
         $tracking: 0;
         $font-weight: 700;
     } @else if $size == 'small' {
         $font-size-pixel: 12;
-        $line-height: 21;
+        $line-height: 18;
         $tracking: 0;
         $font-weight: normal;
     } @else if $size == 'small-bold' {
         $font-size-pixel: 12;
-        $line-height: 21;
+        $line-height: 18;
         $tracking: 0;
         $font-weight: 700;
     } @else if $size == 'large' {
         $font-size-pixel: 20;
-        $line-height: 35;
+        $line-height: 30;
         $tracking: 0;
         $font-weight: normal;
     } @else if $size == 'large-bold' {
         $font-size-pixel: 20;
-        $line-height: 35;
+        $line-height: 30;
         $tracking: 0;
         $font-weight: 700;
     } @else if $size == 'extra' {

@@ -2,8 +2,10 @@ import React from 'react';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import AppLayout from './layout/appLayout';
 import Home from './pages/Home';
-import Home2 from './pages/Home2';
-import Home3 from './pages/Home3';
+import Button from './pages/Button';
+import Link from './pages/Link';
+import Other from './pages/Other';
+import Blog from './pages/Blog';
 import NoMatch from './pages/NoMatch';
 
 function App() {
@@ -12,8 +14,12 @@ function App() {
             <Routes>
                 <Route path="/" element={<AppLayout />}>
                     <Route index element={<Home />} />
-                    <Route path="/Home2" element={<Home2 />} />
-                    <Route path="/Home3" element={<Home3 />} />
+
+                    <Route path="/Button" element={<Button />} />
+                    <Route path="/Link" element={<Link />} />
+                    <Route path="/Other" element={<Other />} />
+                    <Route path="/Blog" element={<Blog />} />
+
                     <Route path="*" element={<NoMatch />} />
                 </Route>
             </Routes>
