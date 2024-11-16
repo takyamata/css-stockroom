@@ -1,5 +1,6 @@
 import React, { useState, type FC } from 'react';
 import { NavLink } from 'react-router-dom';
+import RoutesTs from '@route/routes';
 import styles from './sideMenu.module.scss';
 import { LuArrowLeftToLine, LuArrowRightToLine } from 'react-icons/lu';
 import { BsLayoutSidebarReverse, BsLayoutSidebar } from 'react-icons/bs';
@@ -23,14 +24,6 @@ const SideMenu: FC<SideMenuProps> = ({}) => {
             prevState === 'left' ? 'right' : 'left'
         );
     };
-    const MenuItems: menuItem[] = [
-        { text: 'Home', path: '/' },
-        { text: 'Button', path: '/button' },
-        { text: 'Link', path: '/link' },
-        { text: 'Css Property', path: '/css-property' },
-        { text: 'Other', path: '/other' },
-        { text: 'Blog', path: '/blog' },
-    ];
     return (
         <nav
             className={`${styles.root} `}
@@ -38,7 +31,7 @@ const SideMenu: FC<SideMenuProps> = ({}) => {
             data-position={navPosition}
         >
             <ul className={styles.ul}>
-                {MenuItems.map((item, index) => (
+                {RoutesTs.map((item, index) => (
                     <li className={styles.li} key={item.text}>
                         <NavLink to={item.path} className={styles.a}>
                             <i className={styles.i}></i>

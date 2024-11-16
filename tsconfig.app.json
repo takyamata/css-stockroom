@@ -20,11 +20,17 @@
         "noUnusedLocals": false,
         "noUnusedParameters": false,
         "noFallthroughCasesInSwitch": false,
-        "noUncheckedSideEffectImports": false
-        // "paths": {
-        //     "@/*": ["./resources/js/*"],
-        //     "@images/*": ["./public/images/*"]
-        // }
+        "noUncheckedSideEffectImports": false,
+
+        "baseUrl": "./",
+        "paths": {
+            "@route/*": ["src/route/*"],
+            "@components/*": ["src/components/*"],
+            "@layout/*": ["src/layout/*"],
+            "@pages/*": ["src/pages/*"],
+            "@styles/*": ["src/styles/*"],
+            "@assets/*": ["src/assets/*"]
+        }
     },
     "include": ["src"]
 }
