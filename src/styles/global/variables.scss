@@ -13,16 +13,17 @@ $PCWindowWidth: 1440;
     --disabled: #c4c4c4;
     --header: #ffffff;
     --sidemenu: #fcfcfc;
-    // --sidemenu: #e1e1e2;
+    --sidemenu-dark: color-mix(in sRGB, var(--sidemenu) 93%, black);
     --main: #ffffff;
 
     --border: #e1e1e2;
     --base: #5e5e5e;
+    --base-thin: color-mix(in sRGB, var(--base) 20%, white);
     --icon: #52525b;
+    // イージング ======================
+    --ease-fast: cubic-bezier(0.4, 0.41, 0.25, 1);
+    // タイム ======================
+    --time-base: 0.16s;
+    --time-fase: 0.08s;
+    // その他 ======================
 }
-
-// イージング ======================
-
-// タイム ======================
-
-// その他 ======================
