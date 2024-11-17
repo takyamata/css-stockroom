@@ -4,10 +4,8 @@ import AppLayout from '@layout/AppLayout';
 import { parentRoutes, gsapRoutes } from '@route/routes';
 
 const AnimateRoutes: React.FC = () => {
-    const location = useLocation();
-
     return (
-        <Routes location={location} key={location.pathname}>
+        <Routes>
             <Route path="/" element={<AppLayout />}>
                 {/* 第二階層 */}
                 {parentRoutes.map((route) => (
