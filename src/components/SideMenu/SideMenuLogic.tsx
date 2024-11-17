@@ -4,12 +4,20 @@ import { useLocation } from 'react-router-dom';
 
 export const useSideMenuLogic = () => {
     // sidemenuの開く閉じるの状態定義と初期値
-    const [navState, setNavState] = useState<'open' | 'close'>('close');
+    const [navState, setNavState] = useState<'open' | 'close'>(() => {
+        const savedState = localStorage.getItem('navState');
+        return savedState ? (savedState as 'open' | 'close') : 'close';
+    });
     // sidemenuに配置が左か右かの状態定義。リロードしても配置を保持したいのでローカルストレージの状態を読み込む。なければ初期値は右。
     const [navPosition, setNavPosition] = useState<'left' | 'right'>(() => {
         const savedPosition = localStorage.getItem('navPosition');
         return savedPosition ? (savedPosition as 'left' | 'right') : 'right';
     });
+
+    // navStateが変更されたときにローカルストレージに保存
+    useEffect(() => {
+        localStorage.setItem('navState', navState);
+    }, [navState]);
 
     // navPositionが変更されたときにローカルストレージに保存
     useEffect(() => {

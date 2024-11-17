@@ -5,7 +5,9 @@ import SideMenu from '@components/SideMenu/SideMenu';
 import Header from '@components/Header/Header';
 import Main from '@components/Main/Main';
 
-const AppLayout = () => {
+interface AppLayoutProps {}
+
+const AppLayout: React.FC<AppLayoutProps> = () => {
     return (
         <div className={styles.root}>
             <Header />
