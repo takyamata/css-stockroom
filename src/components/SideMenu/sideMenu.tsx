@@ -1,43 +1,49 @@
-import React, { useState, type FC } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
-import RoutesTs from '@route/routes';
-import styles from './sideMenu.module.scss';
+import styles from './SideMenu.module.scss';
+import { useSideMenuLogic } from './SideMenuLogic';
 import { LuArrowLeftToLine, LuArrowRightToLine } from 'react-icons/lu';
 import { BsLayoutSidebarReverse, BsLayoutSidebar } from 'react-icons/bs';
 
 interface SideMenuProps {}
 
-interface menuItem {
-    text: string;
-    path: string;
-    // icon: React.ComponentType;
-}
+const SideMenu: React.FC<SideMenuProps> = () => {
+    const {
+        navState,
+        navPosition,
+        openNav,
+        closeNav,
+        toggleNavPosition,
+        MenuItems,
+        location,
+    } = useSideMenuLogic();
 
-const SideMenu: FC<SideMenuProps> = ({}) => {
-    const [navState, setNavState] = useState<'open' | 'close'>('close');
-    const [navPosition, setNavPosition] = useState<'left' | 'right'>('left');
-    const toggleNav = () => {
-        setNavState((prevState) => (prevState === 'open' ? 'close' : 'open'));
-    };
-    const toggleNavPosition = () => {
-        setNavPosition((prevState) =>
-            prevState === 'left' ? 'right' : 'left'
-        );
-    };
     return (
         <nav
-            className={`${styles.root} `}
+            className={`${styles.root}`}
             data-state={navState}
             data-position={navPosition}
         >
             <ul className={styles.ul}>
-                {RoutesTs.map((item, index) => (
-                    <li className={styles.li} key={item.text}>
-                        <NavLink to={item.path} className={styles.a}>
-                            <i className={styles.i}></i>
-                            <span key={index} className={styles.span}>
-                                {item.text}
-                            </span>
+                {MenuItems.map((item) => (
+                    <li
+                        className={styles.li}
+                        key={item.text}
+                        data-current={
+                            item.path === '/' && location.pathname === '/'
+                                ? 'true'
+                                : location.pathname.startsWith(item.path) &&
+                                  item.path !== '/'
+                                ? 'true'
+                                : 'false'
+                        }
+                    >
+                        <NavLink
+                            to={item.path}
+                            className={styles.a}
+                            onClick={closeNav}
+                        >
+                            <span className={styles.span}>{item.text}</span>
                         </NavLink>
                     </li>
                 ))}
@@ -48,7 +54,7 @@ const SideMenu: FC<SideMenuProps> = ({}) => {
                         type="button"
                         aria-label="閉じる"
                         className={styles.button_close}
-                        onClick={toggleNav}
+                        onClick={closeNav}
                     >
                         {navPosition === 'left' ? (
                             <LuArrowLeftToLine />
@@ -76,7 +82,7 @@ const SideMenu: FC<SideMenuProps> = ({}) => {
                 type="button"
                 aria-label="開く"
                 className={styles.button_open}
-                onClick={toggleNav}
+                onClick={openNav}
             />
         </nav>
     );

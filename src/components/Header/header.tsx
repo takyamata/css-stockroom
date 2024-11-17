@@ -1,11 +1,12 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import styles from './header.module.scss';
-import RoutesTs from '@route/routes';
+import styles from './Header.module.scss';
+import { parentRoutes, gsapRoutes } from '@route/routes';
 
 const Header = () => {
     const location = useLocation();
-    const currentRoute = RoutesTs.find(
+    const allRoutes = [...parentRoutes, ...gsapRoutes];
+    const currentRoute = allRoutes.find(
         (route) => route.path === location.pathname
     );
     return (

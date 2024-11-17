@@ -6,14 +6,15 @@ import CssProperty from '@pages/CssProperty';
 import Other from '@pages/Other';
 import Blog from '@pages/Blog';
 import NoMatch from '@pages/NoMatch';
-import Chinko from '@pages/Chinko';
+import Gsap from '@pages/Gsap';
+import Scroll from '@components/Gsap/Scroll';
 
 // 既存のRouteObjectに含まれていないものは別途使で拡張する
 type CustomRouteObject = RouteObject & {
     text?: string;
 };
 
-const routes: CustomRouteObject[] = [
+const parentRoutes: CustomRouteObject[] = [
     {
         path: '/',
         element: <Home />,
@@ -36,6 +37,11 @@ const routes: CustomRouteObject[] = [
         text: 'css-property',
     },
     {
+        path: '/gsap',
+        element: <Gsap />,
+        text: 'GSAP',
+    },
+    {
         path: '/other',
         element: <Other />,
         text: 'other',
@@ -52,4 +58,12 @@ const routes: CustomRouteObject[] = [
     },
 ];
 
-export default routes;
+const gsapRoutes: CustomRouteObject[] = [
+    {
+        path: '/gsap/scroll',
+        element: <Scroll />,
+        text: 'scroll',
+    },
+];
+
+export { parentRoutes, gsapRoutes };
