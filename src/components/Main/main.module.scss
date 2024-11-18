@@ -3,8 +3,14 @@
     grid-area: main;
     background-color: var(--main);
     padding: 4rem 3.2rem;
-    border-top: 0.1rem solid var(--border);
+    border-top: 0.2rem solid var(--border);
     @include font(extra-bold);
-    border: 0.2rem solid black;
     min-height: 100%;
+    background-image: radial-gradient(
+        circle,
+        rgba(#3b3b6b, 0.35) 1px,
+        transparent 1px
+    );
+    background-position: 0 0;
+    background-size: 4rem 4rem;
 }

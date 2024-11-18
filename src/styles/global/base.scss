@@ -30,3 +30,14 @@ body {
     background-color: var(--bg);
     @include font(mid, var(--black_1));
 }
+.logo {
+    g {
+        &:not(:last-of-type) {
+            // fill: #3b3b6b;
+            fill: #3b3b6b;
+        }
+        &:last-of-type {
+            fill: var(--logo-red);
+        }
+    }
+}

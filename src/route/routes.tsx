@@ -8,6 +8,7 @@ import Blog from '@pages/Blog';
 import NoMatch from '@pages/NoMatch';
 import Gsap from '@pages/Gsap';
 import Scroll from '@components/Gsap/Scroll';
+import About from '@components/About/About';
 
 // 既存のRouteObjectに含まれていないものは別途使で拡張する
 type CustomRouteObject = RouteObject & {
@@ -22,19 +23,24 @@ const parentRoutes: CustomRouteObject[] = [
         text: 'Home',
     },
     {
+        path: '/about',
+        element: <About />,
+        text: 'About',
+    },
+    {
         path: '/button',
         element: <Button />,
-        text: 'button',
+        text: 'Button',
     },
     {
         path: '/link',
         element: <Link />,
-        text: 'link',
+        text: 'Link',
     },
     {
         path: '/css-property',
         element: <CssProperty />,
-        text: 'css-property',
+        text: 'CSS-Property',
     },
     {
         path: '/gsap',
@@ -44,12 +50,12 @@ const parentRoutes: CustomRouteObject[] = [
     {
         path: '/other',
         element: <Other />,
-        text: 'other',
+        text: 'Other',
     },
     {
         path: '/blog',
         element: <Blog />,
-        text: 'blog',
+        text: 'Blog',
     },
     {
         path: '*',

@@ -1,0 +1,10 @@
+.root {
+}
+.button {
+    width: 10rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    padding: 0.4rem;
+    background-color: var(--button);
+    transition: all 0.2s ease;
+}

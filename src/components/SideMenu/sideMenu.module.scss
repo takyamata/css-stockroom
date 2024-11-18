@@ -2,7 +2,6 @@
 .root {
     grid-area: sidemenu;
     background-color: var(--sidemenu);
-    border-right: 0.1rem solid var(--border);
     position: absolute;
     top: 0;
     width: 20rem;
@@ -15,6 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border: 0.2rem solid var(--border);
     &[data-position='left'] {
         border-radius: 0 1.2rem 1.2rem 0;
     }
@@ -23,7 +23,7 @@
     }
     // openの共通
     &[data-state='open'] {
-        box-shadow: 0 0 1rem 0 rgba(black, 0.2);
+        // box-shadow: 0 0 1rem 0 rgba(black, 0.2);
         &::before,
         &::after {
             opacity: 0.05;
@@ -55,6 +55,7 @@
     &[data-position='left'][data-state='open'] {
         left: 0;
         transform: translate(0, -50%);
+        border-left: none;
         &::before {
             right: -2.5rem;
         }
@@ -66,6 +67,7 @@
     &[data-position='right'][data-state='open'] {
         left: 100%;
         transform: translate(-100%, -50%);
+        border-right: none;
         &::before {
             left: -2.5rem;
         }
@@ -75,7 +77,7 @@
     }
     // 閉じているときのhover共通
     &:has(.button_open:hover) {
-        box-shadow: 0 0 1rem 0 rgba(black, 0.2);
+        // box-shadow: 0 0 1rem 0 rgba(black, 0.2);
         &::before {
             height: 11rem;
         }
@@ -134,32 +136,35 @@
 .li {
     border-radius: 10rem;
     position: relative;
-    &[data-current='true'] {
-        &::after,
-        &::before {
-            content: '';
-            display: block;
-            width: calc(100% + 2rem);
-            height: 0.1rem;
-            border-radius: 10rem;
-            background-color: var(--current);
-            position: absolute;
-        }
+    &::after {
+        content: '';
+        display: block;
+        width: calc(100% + 2rem);
+        height: 0.3rem;
+        border-radius: 10rem;
+        background-color: var(--current);
+        position: absolute;
+        bottom: 0;
+        transition: all 0.22s cubic-bezier(0.02, 0.42, 0.59, 1.35);
+    }
+    [data-position='right'] & {
         &::after {
-            bottom: 0;
+            left: calc(100% + 1.2rem);
         }
-        &::before {
-            bottom: calc(0% - 0.3rem);
+    }
+    [data-position='left'] & {
+        &::after {
+            right: calc(100% + 1.2rem);
         }
+    }
+    &[data-current='true'] {
         [data-position='right'] & {
-            &::after,
-            &::before {
+            &::after {
                 left: calc(0% + 1.2rem);
             }
         }
         [data-position='left'] & {
-            &::after,
-            &::before {
+            &::after {
                 right: calc(0% + 1.2rem);
             }
         }
@@ -174,6 +179,7 @@
     background-color: var(--sidemenu);
     border: 0.1rem solid var(--sidemenu);
     transition: background-color var(--time-fast) var(--ease-fast);
+    text-align: left;
     @include hover {
         background-color: var(--sidemenu-dark);
     }
@@ -182,10 +188,9 @@
 }
 .span {
     display: block;
-    @include font(large, var(--base));
+    @include font(large, var(--base-dark));
     [data-current='true'] & {
         @include font(large-bold, var(--base));
-        // transform: translateX(1rem);
     }
 }
 .menu {
@@ -199,7 +204,7 @@
     }
 }
 
-%button {
+@mixin button() {
     cursor: pointer;
     border-radius: 100rem;
     width: 5rem;
@@ -207,6 +212,7 @@
     display: grid;
     place-content: center;
     transition: border var(--base-time) ease;
+    background-color: none;
     @include hover {
         background-color: var(--sidemenu-dark);
     }
@@ -217,7 +223,7 @@
 }
 .button {
     &_close {
-        @extend %button;
+        @include button;
         svg {
             @extend %icon;
             stroke: var(--base);
@@ -253,9 +259,10 @@
         }
     }
     &_position {
-        @extend %button;
+        @include button;
         svg {
             @extend %icon;
+            // fill: var(--base);
             fill: var(--base);
             transition: background-color var(--time-fast) var(--ease-fast);
         }

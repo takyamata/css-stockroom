@@ -11,20 +11,26 @@ $PCWindowWidth: 1440;
     --error: #d6000f;
     --warning: #ffe600;
     --disabled: #c4c4c4;
-    --header: #ffffff;
+    --header: color-mix(in sRGB, var(--sidemenu) 90%, black);
     --sidemenu: #fcfcfc;
-    --sidemenu-dark: color-mix(in sRGB, var(--sidemenu) 93%, black);
+    --sidemenu-dark: color-mix(in sRGB, var(--sidemenu) 90%, black);
     --main: #ffffff;
 
-    --border: #e1e1e2;
-    --base: #5e5e5e;
+    --border: #3b3b6b;
+    --base: #3b3b6b;
     --base-thin: color-mix(in sRGB, var(--base) 20%, white);
-    --icon: #52525b;
-    --current: #2f60dc;
+    --base-dark: color-mix(in srgb, var(--base) 40%, black);
+    --icon: #3b3b6b;
+    --current: #d24848;
+    --logo-red: #d24848;
+
+    --button: red;
     // イージング ======================
     --ease-fast: cubic-bezier(0.4, 0.41, 0.25, 1);
     // タイム ======================
     --time-base: 0.16s;
     --time-fase: 0.08s;
+
+    --time-page-transition: 3s;
     // その他 ======================
 }
