@@ -2,9 +2,9 @@
 .root {
     grid-area: main;
     background-color: var(--main);
-    padding: 4rem 3.2rem;
+    padding: 4rem 6rem;
     border-top: 0.2rem solid var(--border);
-    @include font(extra-bold);
+    // @include font(extra-bold);
     min-height: 100%;
     background-image: radial-gradient(
         circle,

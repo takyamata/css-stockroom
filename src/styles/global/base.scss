@@ -24,11 +24,46 @@ body {
     text-rendering: optimizeLegibility;
     font-kerning: normal;
     font-family: 'M PLUS 1', 'BIZ UDPGothic', 'メイリオ', Meiryo, sans-serif;
-    color: var(--black_1);
+    color: var(--black);
     overflow-y: scroll;
     overflow-x: hidden;
     background-color: var(--bg);
-    @include font(mid, var(--black_1));
+    @include font(f-24, var(--black));
+}
+.headline {
+    @include font(f-40-bold, var(--black));
+    border-bottom: 0.2rem solid var(--border);
+    margin-bottom: 2rem;
+    text-indent: -1em;
+}
+.subheading {
+    @include font(f-28-bold, var(--black));
+    line-height: 2.5;
+}
+.lead {
+    @include font(f-24, var(--black));
+    line-height: 2.5;
+}
+.span {
+    display: block;
+    @include font(f-24, var(--black));
+    &.right {
+        text-align: right;
+    }
+    &.center {
+        text-align: center;
+    }
+}
+.paragraph {
+}
+a {
+    color: var(--current);
+    text-decoration: underline;
+    transition: var(--time-base) ease;
+    @include hover {
+        text-decoration: none;
+        color: var(--current-thin);
+    }
 }
 .logo {
     g {
@@ -40,4 +75,28 @@ body {
             fill: var(--logo-red);
         }
     }
+}
+.f-12 {
+    @include font(f-12, var(--black));
+}
+.f-12-bold {
+    @include font(f-12-bold, var(--black));
+}
+.f-16 {
+    @include font(f-16, var(--black));
+}
+.f-16-bold {
+    @include font(f-16-bold, var(--black));
+}
+.f-20 {
+    @include font(f-20, var(--black));
+}
+.f-20-bold {
+    @include font(f-20-bold, var(--black));
+}
+.f-28 {
+    @include font(f-28, var(--black));
+}
+.f-28-bold {
+    @include font(f-28-bold, var(--black));
 }

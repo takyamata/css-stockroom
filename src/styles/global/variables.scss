@@ -5,8 +5,9 @@ $PCWindowWidth: 1440;
 
 // カラー ======================
 :root {
-    --white_1: #ffffff;
-    --black_1: #111111;
+    --white: #ffffff;
+    --black: #222222;
+    --black-thin: color-mix(in sRGB, var(--black) 50%, white);
     --bg: #ffffff;
     --error: #d6000f;
     --warning: #ffe600;
@@ -22,6 +23,7 @@ $PCWindowWidth: 1440;
     --base-dark: color-mix(in srgb, var(--base) 40%, black);
     --icon: #3b3b6b;
     --current: #d24848;
+    --current-thin: color-mix(in sRGB, var(--current) 60%, white);
     --logo-red: #d24848;
 
     --button: red;
